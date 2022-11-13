@@ -27,7 +27,7 @@ public class YearlyReport {
     public void readFileYear()
     {
         try{
-            File dir = new File("C:\\resources");
+            File dir = new File("resources");
             for(File item : Objects.requireNonNull(dir.listFiles())){
                 path = dir + "\\" + item.getName();
                 readingResult = readFileContentsOrNull(path);
