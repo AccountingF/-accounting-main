@@ -17,10 +17,11 @@ public class MonthlyReport {
     int monthDate;
     int wrongCounter = 0;
     YearlyReport year = new YearlyReport(monthReporter);
-    public void readFileMonths()
+    public void readFileMonths(String newPath)
     {
         try {
-            File dir = new File("C:\\resources");
+            //File dir = new File("C:\\resources");
+            File dir = new File(newPath);
             for(File item : Objects.requireNonNull(dir.listFiles())){
                 path = dir + "\\" + item.getName();
                 readingResult = readFileContentsOrNull(path);

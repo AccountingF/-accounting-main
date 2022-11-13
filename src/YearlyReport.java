@@ -24,10 +24,11 @@ public class YearlyReport {
         this.monthsInfo = monthsInfo;
     }
 
-    public void readFileYear()
+    public void readFileYear(String newPath)
     {
         try{
-            File dir = new File("C:\\resources");
+            //File dir = new File("C:\\resources");
+            File dir = new File(newPath);
             for(File item : Objects.requireNonNull(dir.listFiles())){
                 path = dir + "\\" + item.getName();
                 readingResult = readFileContentsOrNull(path);

@@ -9,8 +9,10 @@ public class Main {
         //try{
             //while (true) {
                 //printMenu();
-                monthlyReport.readFileMonths();
-                yearlyReport.readFileYear();
+                //monthlyReport.readFileMonths();
+                //yearlyReport.readFileYear();
+                monthlyReport.readFileMonths(args[1]);
+                yearlyReport.readFileYear(args[1]);
                 //int cmd = sc.nextInt();
         int cmd = Integer.parseInt(args[0]);
                 if (cmd == 1){
