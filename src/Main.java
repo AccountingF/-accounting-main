@@ -6,7 +6,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         MonthlyReport monthlyReport = new MonthlyReport();
         YearlyReport yearlyReport = monthlyReport.year;
-        try{
+        //try{
             //while (true) {
                 //printMenu();
                 monthlyReport.readFileMonths();
@@ -28,9 +28,9 @@ public class Main {
                     System.out.println("Неправильный ввод команды.");
                     System.out.println("Введено: " + cmd);
             //}
-        } catch (Exception e) {
+        /*} catch (Exception e) {
             System.out.println("Неправильный ввод команды.");
-        }
+        }*/
         System.exit(0);
     }
     /*static void printMenu(){
