@@ -20,7 +20,7 @@ public class MonthlyReport {
     public void readFileMonths()
     {
         try {
-            File dir = new File("resources");
+            File dir = new File("C:\\resources");
             for(File item : Objects.requireNonNull(dir.listFiles())){
                 path = dir + "\\" + item.getName();
                 readingResult = readFileContentsOrNull(path);

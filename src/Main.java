@@ -3,7 +3,7 @@ public class Main {
 
     public static void main(String[] args) {
         // Поехали!
-        Scanner sc = new Scanner(System.in);
+        //Scanner sc = new Scanner(System.in);
         MonthlyReport monthlyReport = new MonthlyReport();
         YearlyReport yearlyReport = monthlyReport.year;
         //try{
@@ -11,7 +11,8 @@ public class Main {
                 //printMenu();
                 monthlyReport.readFileMonths();
                 yearlyReport.readFileYear();
-                int cmd = sc.nextInt();
+                //int cmd = sc.nextInt();
+        int cmd = Integer.parseInt(args[0]);
                 if (cmd == 1){
                     yearlyReport.reportAnalysis();
                 }
