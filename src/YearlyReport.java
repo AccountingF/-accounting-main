@@ -50,16 +50,20 @@ public class YearlyReport {
             }
             //System.out.println("Годовой отчет был считан!");
             if (wrongCounter == 1)
-                System.out.println("В вашей папке, находящейся по пути " + dir + " есть 1 файл с неправильным именем.");
+                //System.out.println("В вашей папке, находящейся по пути " + dir + " есть 1 файл с неправильным именем.");
+                System.out.println("There is 1 file with the wrong name in your folder located in the path " + dir + ".");
             else if (wrongCounter > 1)
-                System.out.println("В вашей папке, находящейся по пути " + dir + " есть " + wrongCounter + " файлов с неправильным именем.");
+                //System.out.println("В вашей папке, находящейся по пути " + dir + " есть " + wrongCounter + " файлов с неправильным именем.");
+                System.out.println("There are " + dir + " files in your folder in the path " + wrongCounter + " with the wrong name.");
         } catch (NullPointerException e) {
-            System.out.println("В данной директории отсутствуют файлы!");
+            //System.out.println("В данной директории отсутствуют файлы!");
+            System.out.println("There are no files in this directory!");
         }
     }
     public void yearOutput(){
         if (yearlyInfo.keySet().isEmpty())
-            System.out.println("Информации о годовом отчете не было найдено.");
+            //System.out.println("Информации о годовом отчете не было найдено.");
+            System.out.println("No information about the annual report was found.");
 
         int numOfProfit = 0;
         int numOfExpense = 0;
@@ -86,24 +90,30 @@ public class YearlyReport {
                     expenseCount ++;
                 }
                 if (trueNumMonth == falseNumMonth){
-                    System.out.println("Прибыль за " + trueNumMonth + "-й месяц составила: " + (numOfProfit - numOfExpense));
+                    //System.out.println("Прибыль за " + trueNumMonth + "-й месяц составила: " + (numOfProfit - numOfExpense));
+                    System.out.println("Profit for " + trueNumMonth + "th month was: " + (numOfProfit - numOfExpense));
                 }
             }
-            System.out.println("Средний расход за все месяцы в году: " + ((double) expense / expenseCount));
-            System.out.println("Средний доход за все месяцы в году: " + ((double) profit / profitCount));
+            /*System.out.println("Средний расход за все месяцы в году: " + ((double) expense / expenseCount));
+            System.out.println("Средний доход за все месяцы в году: " + ((double) profit / profitCount));*/
+            System.out.println("Average expense for all months of the year: " + ((double) expense / expenseCount));
+            System.out.println("Average income for all months of the year: " + ((double) profit / profitCount));
         }
     }
     public void reportAnalysis() {
         if ((yearlyInfo.keySet().isEmpty()) && (monthsInfo.keySet().isEmpty())) {
-            System.out.println("Информации о годовом и месячных отчетах не было найдено.");
+            //System.out.println("Информации о годовом и месячных отчетах не было найдено.");
+            System.out.println("Information on annual and monthly reports was not found.");
             return;
         }
         else if (yearlyInfo.keySet().isEmpty()) {
-            System.out.println("Информации о годовом отчете не было найдено.");
+            //System.out.println("Информации о годовом отчете не было найдено.");
+            System.out.println("Information about the annual report was not found.");
             return;
         }
         else if (monthsInfo.keySet().isEmpty()) {
-            System.out.println("Информации о месячных отчетах не было найдено.");
+            //System.out.println("Информации о месячных отчетах не было найдено.");
+            System.out.println("Information about monthly reports was not found.");
             return;
         }
         int trueNumMonth = -1;
@@ -125,26 +135,30 @@ public class YearlyReport {
                 if (trueNumMonth == falseNumMonth){
                     ArrayList<Integer> monthlyValue = monthsInfo.get(trueNumMonth);
                     if ((numOfProfit != monthlyValue.get(0)) || (numOfExpense != monthlyValue.get(1))){
-                        System.out.println("Обнаружено несоответствие в месяце: " + numMonthString(Integer.parseInt(numMassive[0])));
+                        //System.out.println("Обнаружено несоответствие в месяце: " + numMonthString(Integer.parseInt(numMassive[0])));
+                        System.out.println("Mismatch detected in month: " + numMonthString(Integer.parseInt(numMassive[0])));
                         reportsCounter++;
                     }
                 }
             }
         }
         if (reportsCounter == 0)
-            System.out.println("Несоответствий обнаружено не было!");
+            //System.out.println("Несоответствий обнаружено не было!");
+            System.out.println("No inconsistencies were found!");
     }
     private String readFileContentsOrNull(String path)
     {
         try {
             return Files.readString(Path.of(path));
         } catch (IOException e) {
-            System.out.println("Невозможно прочитать файл с месячным отчётом. Возможно, файл не находится в нужной директории.");
+            //System.out.println("Невозможно прочитать файл с месячным отчётом. Возможно, файл не находится в нужной директории.");
+            System.out.println("Unable to read monthly report file. The file may not be in the correct directory.");
             return null;
         }
     }
     public String numMonthString(int numMonth) {
-        List<String> months = Arrays.asList("Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь");
+        //List<String> months = Arrays.asList("Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь");
+        List<String> months = Arrays.asList("January","February","March","April","May","June","July","August","September","October", "November December");
         if (numMonth > 0 && numMonth < 13)
             return months.get(numMonth-1);
         return null;
