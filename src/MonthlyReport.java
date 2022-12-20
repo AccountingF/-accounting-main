@@ -68,7 +68,7 @@ public class MonthlyReport {
             String nameMaxExpense = "THE PRODUCT WAS NOT FOUND";
             monthly = monthlyInfo.get(numMonth);
             while (emptyMonth != numMonth) {
-                System.out.println(year.numMonthString(emptyMonth) + "\n");
+                System.out.println(year.numMonthString(emptyMonth));
                 emptyMonth++;
             }
             if (emptyMonth < 12) {
