@@ -98,7 +98,6 @@ public class YearlyReport {
             System.out.println("Средний доход за все месяцы в году: " + ((double) profit / profitCount));*/
             //System.out.println("Average expense for all months of the year: " + ((double) expense / expenseCount));
             //System.out.println("Average income for all months of the year: " + ((double) profit / profitCount));
-            System.out.println(numYear + "_" + (profit / profitCount)); //!!!
             int emptyMonth = 1;
             for (int month : monthsInfo.keySet()) {
                 while (emptyMonth != month && emptyMonth < 13) {
@@ -114,6 +113,7 @@ public class YearlyReport {
                 System.out.println(emptyMonth + "_0");
                 emptyMonth++;
             }
+            System.out.println(numYear + "_" + profit); //!!!
         }
     }
     public void reportAnalysis() {
