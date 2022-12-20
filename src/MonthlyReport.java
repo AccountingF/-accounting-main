@@ -44,22 +44,36 @@ public class MonthlyReport {
             }
             //System.out.println("Месячные отчеты были считаны!");
             if (wrongCounter == 1)
-                System.out.println("В вашей папке, находящейся по пути " + dir + " есть 1 файл с неправильным именем.");
+                //System.out.println("В вашей папке, находящейся по пути " + dir + " есть 1 файл с неправильным именем.");
+                System.out.println("There is 1 file with the wrong name in your folder in the path " + dir + ".");
             else if (wrongCounter > 1)
-                System.out.println("В вашей папке, находящейся по пути " + dir + " есть " + wrongCounter + " файлов с неправильным именем.");
+                //System.out.println("В вашей папке, находящейся по пути " + dir + " есть " + wrongCounter + " файлов с неправильным именем.");
+                System.out.println("There are " + dir + " files in your folder in the path " + wrongCounter + " with the wrong name.");
         } catch (NullPointerException e) {
-            System.out.println("В данной директории отсутствуют файлы!");
+            //System.out.println("В данной директории отсутствуют файлы!");
+            System.out.println("There are no files in this directory!");
         }
     }
     public void monthsOutput(){
         if (monthlyInfo.keySet().isEmpty())
-            System.out.println("Информации о месячных отчетах не было найдено.");
+            //System.out.println("Информации о месячных отчетах не было найдено.");
+            System.out.println("No monthly report information found.");
         for (int numMonth : monthlyInfo.keySet()) {
             int maxProfit = -1;
             int maxExpense = -1;
-            String nameMaxProfit = "ТОВАР НЕ БЫЛ НАЙДЕН";
-            String nameMaxExpense = "ТОВАР НЕ БЫЛ НАЙДЕН";
+            int emptyMonth = 1;
+            /*String nameMaxProfit = "ТОВАР НЕ БЫЛ НАЙДЕН";
+            String nameMaxExpense = "ТОВАР НЕ БЫЛ НАЙДЕН";*/
+            String nameMaxProfit = "THE PRODUCT WAS NOT FOUND";
+            String nameMaxExpense = "THE PRODUCT WAS NOT FOUND";
             monthly = monthlyInfo.get(numMonth);
+            while (emptyMonth != numMonth) {
+                System.out.println(year.numMonthString(emptyMonth) + "\n");
+                emptyMonth++;
+            }
+            if (emptyMonth < 12) {
+                emptyMonth++;
+            }
             System.out.println(year.numMonthString(numMonth));
             for (String[] numMassive : monthly) {
                 if (numMassive[1].equals("FALSE")){
@@ -77,8 +91,10 @@ public class MonthlyReport {
                     }
                 }
             }
-            System.out.println("Самый прибыльный товар: " + nameMaxProfit + ". Его прибыль составила: " + maxProfit);
-            System.out.println("Самая большая трата на товар: " + nameMaxExpense + ". Размер траты на него составил: " + maxExpense);
+            /*System.out.println("Самый прибыльный товар: " + nameMaxProfit + ". Его прибыль составила: " + maxProfit);
+            System.out.println("Самая большая трата на товар: " + nameMaxExpense + ". Размер траты на него составил: " + maxExpense);*/
+            System.out.println("Most profitable product: " + nameMaxProfit + ". Its profit was: " + maxProfit);
+            System.out.println("The biggest spend on a product: " + nameMaxExpense + ". The amount spent on it was: " + maxExpense);
         }
     }
     private void monthReport(Integer month){
@@ -104,7 +120,8 @@ public class MonthlyReport {
         try {
             return Files.readString(Path.of(path));
         } catch (IOException e) {
-            System.out.println("Невозможно прочитать файл с месячным отчётом. Возможно, файл не находится в нужной директории.");
+            //System.out.println("Невозможно прочитать файл с месячным отчётом. Возможно, файл не находится в нужной директории.");
+            System.out.println("Unable to read monthly report file. The file may not be in the correct directory.");
             return null;
         }
     }
