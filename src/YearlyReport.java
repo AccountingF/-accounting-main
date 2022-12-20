@@ -101,14 +101,18 @@ public class YearlyReport {
             System.out.println(numYear + "_" + (profit / profitCount)); //!!!
             int emptyMonth = 1;
             for (int month : monthsInfo.keySet()) {
-                while (emptyMonth != month) {
+                while (emptyMonth != month && emptyMonth < 13) {
                     System.out.println(emptyMonth + "_0");
                     emptyMonth++;
                 }
                 System.out.println(month + "_" + monthsInfo.get(month).get(0));
-                if (emptyMonth < 12) {
+                if (emptyMonth < 13) {
                     emptyMonth++;
                 }
+            }
+            while (emptyMonth < 13) {
+                System.out.println(emptyMonth + "_0");
+                emptyMonth++;
             }
         }
     }
@@ -170,7 +174,7 @@ public class YearlyReport {
     }
     public String numMonthString(int numMonth) {
         //List<String> months = Arrays.asList("Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь");
-        List<String> months = Arrays.asList("January","February","March","April","May","June","July","August","September","October", "November December");
+        List<String> months = Arrays.asList("January","February","March","April","May","June","July","August","September","October", "November", "December");
         if (numMonth > 0 && numMonth < 13)
             return months.get(numMonth-1);
         return null;

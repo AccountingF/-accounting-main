@@ -58,20 +58,20 @@ public class MonthlyReport {
         if (monthlyInfo.keySet().isEmpty())
             //System.out.println("Информации о месячных отчетах не было найдено.");
             System.out.println("No monthly report information found.");
+        int emptyMonth = 1;
         for (int numMonth : monthlyInfo.keySet()) {
             int maxProfit = -1;
             int maxExpense = -1;
-            int emptyMonth = 1;
             /*String nameMaxProfit = "ТОВАР НЕ БЫЛ НАЙДЕН";
             String nameMaxExpense = "ТОВАР НЕ БЫЛ НАЙДЕН";*/
             String nameMaxProfit = "THE PRODUCT WAS NOT FOUND";
             String nameMaxExpense = "THE PRODUCT WAS NOT FOUND";
             monthly = monthlyInfo.get(numMonth);
-            while (emptyMonth != numMonth) {
+            while (emptyMonth != numMonth && emptyMonth < 13) {
                 System.out.println(year.numMonthString(emptyMonth));
                 emptyMonth++;
             }
-            if (emptyMonth < 12) {
+            if (emptyMonth < 13) {
                 emptyMonth++;
             }
             System.out.println(year.numMonthString(numMonth));
@@ -95,6 +95,10 @@ public class MonthlyReport {
             System.out.println("Самая большая трата на товар: " + nameMaxExpense + ". Размер траты на него составил: " + maxExpense);*/
             System.out.println("Most profitable product: " + nameMaxProfit + ". Its profit was: " + maxProfit);
             System.out.println("The biggest spend on a product: " + nameMaxExpense + ". The amount spent on it was: " + maxExpense);
+        }
+        while (emptyMonth < 13) {
+            System.out.println(year.numMonthString(emptyMonth));
+            emptyMonth++;
         }
     }
     private void monthReport(Integer month){
