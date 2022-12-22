@@ -28,7 +28,8 @@ public class Main {
                     //break;
                 }
                 else
-                    System.out.println("Invalid command input.");
+                    //System.out.println("Invalid command input.");
+                    System.out.println("Неправильный ввод команды.");
             //}
         /*} catch (Exception e) {
             System.out.println("Неправильный ввод команды.");
